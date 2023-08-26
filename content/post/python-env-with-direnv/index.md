@@ -11,9 +11,9 @@ categories:
 tags:
     - python
     - shell
-toc: true
 ---
 
+# The problem
 I have been using Python for a while, from small pet projects to professional
 sass services. I like writing Python but one thing that bugs me the most is
 virtual environment. I get it you keep your packages separate between your
@@ -22,12 +22,14 @@ but initializing the environment every time i switch between projects is the
 worst hassle. It's easy to forget to do so especially when you are trying to
 do an urgent fix that the client is thinking for.
 
+# The bad solution
 Looking for a solution to do this I wrote a small bash function to overwrite
 the `cd` function which would change the directory and initialize a `.profile`
 file in the directory if present. But then I thought if this is so easy to do,
 then surely someone would've done it and would likely have added a ton more
 features into the same. That's how I found `direnv`.
 
+# The perfect solution
 `direnv` allows you to have a `.envrc` script in your folder that gets run to
 create a shell environment as per your requirements.
 
@@ -46,6 +48,7 @@ a new python environment for every new project. Hardcode its path in my
 `.envrc` and then I'll have to copy paste the common environment variables and
 so on.
 
+# My setup
 With direnv it becomes as simple as
 
 ```shell

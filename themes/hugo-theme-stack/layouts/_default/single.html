@@ -7,10 +7,13 @@
     */}}
     {{- $HasWidgetNotTOC := false -}}
     {{- $TOCWidgetEnabled := false -}}
+    <h1>Hi1</h1>
     {{- range .Site.Params.widgets.page -}}
         {{- if ne .type "toc" -}}
+            <h1>Hi2</h1>
             {{ $HasWidgetNotTOC = true -}}
         {{- else -}}
+            <h1>Hi3</h1>
             {{ $TOCWidgetEnabled = true -}}
         {{- end -}}
     {{- end -}}
@@ -18,6 +21,7 @@
     {{- $TOCManuallyDisabled := eq .Params.toc false -}}
     {{- $TOCEnabled := and (not $TOCManuallyDisabled) $TOCWidgetEnabled -}}
     {{- $hasTOC := ge (len .TableOfContents) 100 -}}
+    {{- .TableOfContents | safeHTML -}}
     {{- .Scratch.Set "TOCEnabled" (and $TOCEnabled $hasTOC) -}}
     
     {{- .Scratch.Set "hasWidget" (or $HasWidgetNotTOC (and $TOCEnabled $hasTOC)) -}}
