@@ -18,9 +18,7 @@
             {{- block "left-sidebar" . -}}
                 {{ partial "sidebar/left.html" . }}
             {{- end -}}
-            {{- block "right-sidebar" . -}}
-                {{ partial "sidebar/right.html" . }}
-            {{ end }}
+            {{- block "right-sidebar" . -}}{{ end }}
             <main class="main full-width">
                 {{- block "main" . }}{{- end }}
             </main>
