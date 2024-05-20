@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes by Atharva</title><link>https://atharvakadlag.github.io/</link><description>Recent content on Notes by Atharva</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 16 Aug 2023 21:11:06 +0000</lastBuildDate><atom:link href="https://atharvakadlag.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Seamless virtual environments with direnv</title><link>https://atharvakadlag.github.io/p/virtualenvs-with-direnv/</link><pubDate>Wed, 16 Aug 2023 21:11:06 +0000</pubDate><guid>https://atharvakadlag.github.io/p/virtualenvs-with-direnv/</guid><description>&lt;img src="https://atharvakadlag.github.io/p/virtualenvs-with-direnv/cover.png" alt="Featured image of post Seamless virtual environments with direnv" />&lt;h1 id="the-problem">The problem&lt;/h1>
+&lt;p>I have been using Python for a while, from small pet projects to professional
+sass services. I like writing Python but one thing that bugs me the most is
+virtual environment. I get it you keep your packages separate between your
+projects so that updating one thing here doesn&amp;rsquo;t break something else somewhere
+but initializing the environment every time i switch between projects is the
+worst hassle. It&amp;rsquo;s easy to forget to do so especially when you are trying to
+do an urgent fix that the client is thinking for.&lt;/p>
+&lt;h1 id="the-bad-solution">The bad solution&lt;/h1>
+&lt;p>Looking for a solution to do this I wrote a small bash function to overwrite
+the &lt;code>cd&lt;/code> function which would change the directory and initialize a &lt;code>.profile&lt;/code>
+file in the directory if present. But then I thought if this is so easy to do,
+then surely someone would&amp;rsquo;ve done it and would likely have added a ton more
+features into the same. That&amp;rsquo;s how I found &lt;code>direnv&lt;/code>.&lt;/p>
+&lt;h1 id="the-perfect-solution">The perfect solution&lt;/h1>
+&lt;p>&lt;code>direnv&lt;/code> allows you to have a &lt;code>.envrc&lt;/code> script in your folder that gets run to
+create a shell environment as per your requirements.&lt;/p>
+&lt;p>While on surface it sounds simple, the amount of overheads the devs have built
+into it is amazing. You can use &lt;code>direnv&lt;/code> specific commands to achieve complex
+tasks.&lt;/p>
+&lt;p>Eg. Following is the requirement:&lt;/p>
+&lt;ol>
+&lt;li>I want to initialize an environment of python3.8.6 in my directory.&lt;/li>
+&lt;li>I have a work folder on my drive that I keep all my work projects in,
+lets say &lt;code>/home/username/work&lt;/code>. I have few environment variables that are
+common to all projects and I also have project specific ones.&lt;/li>
+&lt;/ol>
+&lt;p>Now with the script I wrote I would have to go through the hassle of setting up
+a new python environment for every new project. Hardcode its path in my
+&lt;code>.envrc&lt;/code> and then I&amp;rsquo;ll have to copy paste the common environment variables and
+so on.&lt;/p>
+&lt;h1 id="my-setup">My setup&lt;/h1>
+&lt;p>With direnv it becomes as simple as&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">source_up
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layout pyenv 3.8.6
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">PROJECT_SPECIFIC_FOO&lt;/span>&lt;span class="o">=&lt;/span>project_specific_foo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>where &lt;code>source_up&lt;/code> would automatically source my parent directory which would
+contain common env vars, &lt;code>layout pyenv&lt;/code> will create me a &lt;code>virtualenv&lt;/code> with the
+given python version and export will allow me to set project specific env vars.&lt;/p>
+&lt;p>Installation instructions for &lt;code>direnv&lt;/code> can be found &lt;a class="link" href="https://direnv.net/docs/installation.html" target="_blank" rel="noopener"
+>here&lt;/a>&lt;/p>
+&lt;p>Theres a lot more to do with &lt;code>direnv&lt;/code> which you can read about &lt;a class="link" href="https://github.com/direnv/direnv/wiki" target="_blank" rel="noopener"
+>here&lt;/a>&lt;/p>
+&lt;p>Read more about direnv at &lt;a class="link" href="https://direnv.net/" target="_blank" rel="noopener"
+>official webpage&lt;/a>&lt;/p></description></item><item><title>Archives</title><link>https://atharvakadlag.github.io/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://atharvakadlag.github.io/archives/</guid><description/></item><item><title>Links</title><link>https://atharvakadlag.github.io/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://atharvakadlag.github.io/links/</guid><description>&lt;p>To use this feature, add &lt;code>links&lt;/code> section to frontmatter.&lt;/p>
+&lt;p>This page&amp;rsquo;s frontmatter:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub is the world&amp;#39;s largest software development platform.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.com&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://www.typescriptlang.org&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ts-logo-128.jpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>image&lt;/code> field accepts both local and external images.&lt;/p></description></item><item><title>Search</title><link>https://atharvakadlag.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://atharvakadlag.github.io/search/</guid><description/></item></channel></rss>
