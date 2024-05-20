@@ -3,7 +3,7 @@ title: Seamless virtual environments with direnv
 description: Forget about initializing and maintaining your python environments,
     shell profile, environment variables, aliases and much more!
 slug: virtualenvs-with-direnv
-date: 22023-08-16 21:11:06
+date: 2023-08-16 21:11:06
 image: cover.png
 categories:
     - Programming
